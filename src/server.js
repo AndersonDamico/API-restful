@@ -12,7 +12,10 @@ db.connect ()
 
 
 // habilita server para receber dados via post (formulário)
-app.use(express.urlencoded({ extended: true }))
+//app.use(express.urlencoded({ extended: true }))
+
+//habilita server para receber dados jason
+app.use(express.json())
 
 //definindo as rotas
 app.use ('/api', routes)
