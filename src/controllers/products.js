@@ -47,6 +47,7 @@ async function put (req, res) {
 
    /*  esse codigo serve para realizar alteraçoes nos produtos dentro do servidor porem tem outra forma de realizar
    chamado findOneAndUpdate, que retorna o item ja alterado.
+    
     const product = await ProductsModel.findOne ({ _id: id })
     
     await product.updateOne (req.body)
@@ -58,8 +59,22 @@ async function put (req, res) {
     */
 }
 
+async function remove (req, res) {
+    const { id } = req.params
+
+    const remove = await ProductsModel.deleteOne ({ _id:id })
+    const message = remove.ok ? 'success' : 'error'
+
+    res.send ({
+        message,
+    })
+
+}
+
+
 module.exports = {
     get,
     post,
     put,
+    remove,
 }
