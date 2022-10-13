@@ -1,17 +1,10 @@
-const router= require ('express').Router ()
+const router = require('express').Router()
 
+const ProductController = require('../controllers/products')
 
-
-/* verbos HTTP, existe 4 tipos o GET- para obter dados, POST- enviar ou receber dados, 
-put- atualizar dados e DELETE para remover dados */
-
-
-const ProductController = require ('../controllers/products')
-
-router.get('/products/:id?', ProductController.get )
+router.get('/products/:id?', ProductController.get)
 router.post('/products', ProductController.post)
 router.put('/products/:id', ProductController.put)
 router.delete('/products/:id', ProductController.remove)
-
 
 module.exports = router
